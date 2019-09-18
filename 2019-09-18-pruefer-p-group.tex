@@ -40,13 +40,51 @@ This demonstrates that every finitely generated subgroup of $\Z(p^\infty)$ is a 
 
 Moreover, say $g_M$ of maximal exponent in $H$ does not exist. This with Neumann's theorem implies $H$ has a countably infinite generating set. Then for each $n \in \N$, the subgroup $H$ contains $\Z/p^n$. The universal property of the colimit pushes out a map that $\Z(p^\infty) \inj H$, hence knowing also $H \inj Z(p^\infty)$, we have an isomorphism of abelian groups.
 
-So also we now have enough information to exhaustively list the subgroups of $\Z(p^\infty)$:
+We have enough information to exhaustively list the subgroups of $\Z(p^\infty)$:
 \begin{itemize}
-    \item each cyclic group of prime power order $p^n$
+    \item (isomorphic copies of) each cyclic group of prime power order $p^n$
     \item the trivial subgroup $0$
     \item the entire group $\Z(p^\infty)$ itself.
 \end{itemize}
 
-\end{enumerate}
+Lastly, fix an arbitrary $n$ and endow $\Z/p^n$ with the standard multiplication. Then $\Z/p^n$ is a finite field. As fields are never closed under products, Birkhoff's theorem implies that $\Z/p^n$ cannot be contained in a variety of subalgebras of $\Z(p^\infty)$. Thence, specifying to the definition of a variety of groups, $\Z/p^n$ cannot be a verbal subgroup of $\Z(p^\infty)$. Because any homomorphic image of a generator $g_n \in \Z/p^n$ has exponent dividing $n$, any endomorphism $\phi$ in $\End(\Z(p^\infty))$ maps $g_n$ back into $\Z/p^n$. So $\Z/p^n$ is fully invariant.
 
+That $0$ and $\Z(p^\infty)$ are verbal subgroups follows trivially by taking the empty word and the 1 letter words respectively.
+
+\item If $N$ and $K$ are normal subgroups of a group $G$, there's a ``diagonal" embedding $G/(N\cap K)$ into the product $G/N \times G/K$ that projects onto each component.
+
+\begin{proof}
+Knowing that $N\cap K \inj N$ and $N\cap K \inj K$, there is a well defined mapping on cosets of $N \cap K$ in $G$ to cosets of $N$ and $K$ in $G$ respectively, given by choosing the unique sets $gN$ and $gK$ such that $g(N\cap K) \subset gN$ and $g(N\cap K) \subset gK$. Inspecting the definition of the projections $\pi_N$ and $\pi_K$ from $G$ to the quotients $G/N$ and $G/K$, our afore chosen well defined mapping is a homomorphism of groups:
+\begin{align*}
+    d^* \colon 
+    G/(N\cap K) &\to G/N \times G/K\\
+    g(N\cap K) &\overset{d^*}{\mapsto} gN \times gK
+\end{align*}
+    The image $d^*\paren{\frac{G}{N \cap K}}$ seen to be onto the arbitrary component $G/H$ for $H = N, K$ by lifting $1 \times \cdots \times gH \times \cdots \times 1$ to $g(\cdots \cap H \cap \cdots)$. The kernel $\ker d^*$ is seen to be trivial by observing if the cosets $g(N \cap K) \subset 1N$ and $g(N \cap K) \subset 1K$ are in the trivial class of the respective cosets of the identity in the components, then $g(N \cap K) \subset 1(N \cap K)$, hence $d^*(g(N \cap K)) = 1N \times 1K$ only if $g \in N \cap K$.
+\end{proof}
+
+\item Suppose that $H \triangleleft G$ is a minimal normal subgroup of a finite solvable group $G$. Minimality and normality of $H$ in $G$ implies that if $Q \chr H$ and $Q \neq H$, then $Q \triangleleft G$, which is absurd. (See chapter 3 pages 87--88 of \cite{Rob96}.) Hence $H$ is a characteristically simple group. 
+
+Because $G$ is solvable, choose some composition series of $G$
+\begin{equation}
+    \label{compseriesG}
+    1 = N_0 \triangleleft N_1 \triangleleft \cdots \triangleleft N_\ell = G \qq{with abelian subquotients $N_{i+1}/N_i$ for all $i < \ell$}
+\end{equation}
+Intersecting $H$ with the terms of the composition series of $G$ yields a filtration of $H$ with abelian subquotients, showing that $H$ too is solvable. 
+
+Consider that the derived subgroup of $H$ is characteristic in $H$: 
+\begin{equation*}
+    \bkt{H, H} \chr H
+\end{equation*}
+By minimality and normality of $H$ in $G$, either $[H,H] = 1$ or $[H, H] = H$. In the latter case, the derived series of $H$ does not terminate. As the derived series of $H$ has terms contained in every composition series of $H$ with abelian subquotients, we see that $H$ does not have the composition series guaranteed by the solvability of $G$, which is absurd. Hence $[H, H] = 1$, and $H$ is abelian.
+
+Let $p$ be any prime dividing $\abs{H}$, and let $P < H$ be a Sylow $p$-subgroup of $H$. That $H$ is characteristically simple implies that $\Aut H$ is simple.\footnote{Colton needs to revise this claim.} But as $H$ acts transitively on the conjugates of $P$ in $H$, the lack of interesting automorphisms implies that $P$ is invariant under conjugation (inner automorphisms). Hence $P \triangleleft H \chr G$ implies $P \triangleleft G$. Minimality and normality of $H$ in $G$ forces $P = H$.
+
+Since $G$ is finite, $P$ is finite. Applying proposition 3.3.15.ii in \cite{Rob96}, $P$ is the direct product of finite simple groups. Hence $P$ is an elementary abelian $p$-group.%
+    \footnote{%
+        I would love to show more that the automorphism group of $P$ is a project special linear group. Clearly $\Aut(P)$ is $\Aut(\Z_{p^n}) \cong \Z_{\phi(n)}$, which is not simple. Hence $\Aut(P)$ should be a group of linear transformations of some finite dimensional vector space over the field $\Z/p$. But how does one move from the general linear group of a finite geometry to the projective special linear group?
+    }
+
+
+\end{enumerate}
 \end{document}
