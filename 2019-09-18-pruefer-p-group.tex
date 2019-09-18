@@ -1,0 +1,52 @@
+\documentclass[onesided]{ccg-pset}
+
+\course{MATH 6270}
+\psnum{3}
+\author{Colton Grainger}
+\date{\today}
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\bibliography{/home/colton/coltongrainger.bib}
+\bibliographystyle{alpha}
+
+\item 
+For $p$ a prime, the \term{Prüfer $p$-group} $\Z(p^\infty) = \Z\paren{p^{\infty}}$
+is the direct limit (or \term{colimit}) of the sequence of abelian groups
+\begin{equation}
+\label{colimseq}
+0 \inj \Z/p \inj \Z/p^2  \inj \Z/p^3 \inj \cdots \inj \Z/p^n \inj \cdots
+\end{equation}
+where for each $n \in \N$ the quotient group $\Z/p^n$ is ``glued into'' $\Z/p^{n+1}$ by the $p$th power map.
+
+Considering generators and relations (as in \cite{Rie17}), we can also describe the Prüfer $p$-group as
+\begin{equation*}
+    \Z/p^\infty := \ang{\set{g_1, g_2, g_3, \ldots} \mid \set{0, g_1p, g_2p^2, \ldots} }
+\end{equation*}
+
+If $H$ is a subgroup of $\Z(p^{\infty})$, then there either exists some $g_M \in H \cap \set{g_1, g_2, g_3, \ldots}$ of maximal exponent or not. 
+
+Say $g_M$ of maximal exponent in $H$ does exist. I claim the inclusion of $H$ into $\Z(p^\infty)$ induces
+\begin{equation*}
+    \shortexact{H}{\Z(p^\infty)}{\Z(p^\infty)}{}
+\end{equation*}
+because $\Z(p^\infty)$ is isomorphic to the colimit of \eqref{colimseq} with $M$ additional trivial groups tacked onto the front of the sequence, i.e., the colimit of the diagram
+\begin{equation}
+\label{quotientedcolim}
+    \underbrace{0 \inj \ldots \inj 0}_\text{$M+1$ trivial groups} \inj \Z/p \inj \Z/p^2 \inj \cdots
+\end{equation}
+This demonstrates that every finitely generated subgroup of $\Z(p^\infty)$ is a proper subgroup of $\Z(p^\infty)$. Hence $\Z(p^\infty)$ is not finitely generated.
+
+Moreover, say $g_M$ of maximal exponent in $H$ does not exist. This with Neumann's theorem implies $H$ has a countably infinite generating set. Then for each $n \in \N$, the subgroup $H$ contains $\Z/p^n$. The universal property of the colimit pushes out a map that $\Z(p^\infty) \inj H$, hence knowing also $H \inj Z(p^\infty)$, we have an isomorphism of abelian groups.
+
+So also we now have enough information to exhaustively list the subgroups of $\Z(p^\infty)$:
+\begin{itemize}
+    \item each cyclic group of prime power order $p^n$
+    \item the trivial subgroup $0$
+    \item the entire group $\Z(p^\infty)$ itself.
+\end{itemize}
+
+\end{enumerate}
+
+\end{document}
