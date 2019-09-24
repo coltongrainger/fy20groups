@@ -1,0 +1,76 @@
+\documentclass[onesided]{ccg-pset}
+
+\course{MATH 6270}
+\psnum{4}
+\author{Colton Grainger}
+\date{\today}
+
+\newcommand{\Dih}[1]{\mathrm{Dih}\paren{ #1 }} 
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item \emph{To prove.}%
+    \footnote{%
+    See sections 5.1.11 and 5.1.12 in \cite{Rob96}.
+    }
+ For all $i \in \N$, the derived subgroup $G^{(i)}$ of an arbitrary group $G$ is contained in $2^{i}$th subgroup $\gamma_{2^i}(G)$ of the lower central series for $G$.
+
+\begin{proof}
+\end{proof}
+
+\item \emph{Given.} Let $\GL(n,p)$ be the multiplicative group of invertible $n \times n$ matrices with entries in the finite field of prime order $p$. Let $\U(n,p)$ be the subgroup of unit upper triangular matrices.
+\begin{prop*}
+\label{prop:2}
+\hfill
+\begin{enumerate}
+    \item $\U(n,p)$ is nilpotent of class $n-1$.
+    \item $\U(n,p)$ is a Sylow $p$-subgroup of $\GL(n,p)$.
+    \item Every finite $p$-group embeds into some $\U(n,p)$.
+\end{enumerate}
+\end{prop*}
+
+\begin{proof}
+\end{proof}
+
+\item \emph{To prove.} If $G$ is a finite group with Sylow%
+    \footnote{%
+    Hint: Use Sylow's theorem to obtain a transitive action of $G$ on its Sylow $p$-subgroups, then apply an argument like Frattini's.
+    }
+ subgroup $P$ such that $N_G(P) \le H \le G$, then $H$ is self-normalizing in $G$.
+
+\begin{proof}
+
+\end{proof}
+
+\item \emph{Given.} The generalized dihedral group $\Dih A$ is the data of
+\begin{itemize}
+    \item an abelian group $A$ (or, if you like, a $\Z$-module $A$),
+    \item the embedding $\Z_2 \xrightarrow{\alpha} \Aut(A)$ defined by $0 \mapsto \id(\bl)$ and $1 \mapsto (\bl)^{-1}$, 
+    \item the semidirect product $\Z_2 \ltimes_\alpha A$.
+\end{itemize}
+
+\begin{prop*}
+    \label{prop:4}
+    For the Prüfer $p$-group $A = \Z(2^\infty)$, the generalized dihedral group $\Dih A$ 
+\begin{itemize}
+\item is not nilpotent, but%
+    \footnote{%
+    Hint: Write the elements of $\Dih A$ in the form $a$ and $ba$ for $a \in A$ and $b$ acting as inversion.
+    }
+
+\item each $H \in \Dih A$ has normalizer $N_{\Dih A}(H)$ strictly larger than $H$.
+\end{itemize}
+\end{prop*}
+
+\begin{proof}
+    
+\end{proof}
+\end{enumerate}
+
+\bibliography{/home/colton/coltongrainger.bib}
+\bibliographystyle{alpha}
+
+\end{document}
