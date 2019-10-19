@@ -1,0 +1,129 @@
+\documentclass{ccg-notes}
+
+\institution{University of Colorado}
+\coursenum{MATH 6270}
+\coursename{Theory of Groups}
+\semester{Fall 2019}
+\teacher{Peter Mayr}
+\author{Colton Grainger}
+\date{\today}
+\email{colton.grainger@colorado.edu}
+\thanks{Thanks to \texttt{adebray} for the \LaTeX\ template, which I have forked from \url{https://github.com/adebray/latex_style_files}.}
+
+\begin{document}
+\frontstuff
+
+\section{2019-08-26}
+revision of group actions;
+Fundamental Counting Principle for orbit size;
+Lagrange's Theorem
+
+\section{2019-08-28}
+centralizer;
+normalizer;
+center of a p-group;
+existence of Sylow subgroups
+
+\section{2019-08-30}
+Sylow's Theorem;
+Cauchy's Theorem;
+free groups;
+universal mapping property
+
+\section{2019-09-04}
+construction and uniqueness of free group;
+rank
+
+\begin{prop}[Free groups and their underlying sets.]
+    \label{prop:free_forgetful_adjunction}
+    Let $F_1$ and $F_2$ be free groups on the sets $X_1$ and $X_2$ respectively. Then $F_1 \cong F_2$ if and only if $\abs{X_1} = \abs{X_2}$.
+\end{prop}
+
+\begin{proof}
+First we show $\abs{X_1} = \abs{X_2}$ determines $F_1 \cong F_2$. 
+So let $\alpha \colon X_1 \to X_2$ be a bijection. 
+Then the embedding 
+\[X_1 \xrightarrow{\alpha} X_2 \inj F_2 \qq{extends to a unique group homomorphism} \beta_1 \colon F_1 \to F_2\] 
+and similarly the embedding
+\[X_2 \xrightarrow{\alpha^{-1}} X_1 \inj F_1 \qq{extends to a unique} \beta_2 \colon F_2 \to F_1.\] 
+Notice the restriction of the composition $\beta_2 \beta_1$ from its domain $F_1$ to the underlying set $X_1 \subset F_1$ takes each point $x$ in $X_1$ to itself:
+\[\beta_2 \beta_1 (x) = \alpha^{-1}\alpha(x) = x.\] 
+That is to say, the following diagram commutes. 
+\begin{equation*}
+\begin{gathered}\xymatrix@=1em{%
+    X_1 \ar[dr]_{\id_{X_1}}\ar@{^{(}->}[rr] & & F_1 \ar[dl]^{\beta_2\beta_1}\\
+    & F_1 & 
+    }
+\end{gathered}
+\end{equation*}
+By the projective property of $F_1$ over $X_1$, the embedding $X_1 \xrightarrow{\id_{X_1}} F_1$ has a unique extension $F_1 \xrightarrow{\cong} F_1$. Since $\beta_2\beta_1$ already extends $X_1 \xrightarrow{\id_{X_1}} F_1$, it must be that  $\beta_2$ is a left inverse to $\beta_1$. 
+
+Similarly, the restriction of $\beta_1\beta_2$ from its domain $F_2$ to the underlying set $X_2 \subset F_2$ is the identity on $X_2$. Hence the following diagram commutes
+\begin{equation*}
+\begin{gathered}\xymatrix@=1em{%
+    X_2 \ar[dr]_{\id_{X_2}}\ar@{^{(}->}[rr] & & F_2 \ar[dl]^{\beta_1\beta_2}\\
+    & F_2 & 
+    }
+\end{gathered}
+\end{equation*}
+and one may argue that $\beta_1$ is a left inverse to $\beta_2$. We conclude that $\beta_1$ is an isomorphism with inverse $\beta_2$.
+
+Conversely, suppose the free groups over $X_1$ and $X_2$ are isomorphic. One may argue that the free group functor $F \colon \Set \to \Grp$ is a fully faithful functor (\TODO). In this case, the isomorphism $F_1 \xrightarrow{\cong} F_2$ is induced by a unique bijection $X_1 \xrightarrow{\cong}X_2$. 
+
+\end{proof}
+\section{2019-09-06}
+presentations;
+finitely presented groups;
+word problem
+
+\section{2019-09-09}
+verbal subgroups;
+varieties and HSP
+
+\section{2019-09-11}
+free groups in varieties;
+Burnside problem
+
+
+\section{2019-09-13}
+subnormal series;
+simple groups;
+extensions;
+semidirect product;
+solvable groups
+
+\section{2019-09-16}
+commutators;
+derived series;
+central series;
+nilpotent groups
+
+\section{2019-09-18}
+upper and lower central series;
+unitriangular groups
+
+\section{2019-09-20}
+characterizations of nilpotent groups;
+Fitting subgroup controlling structure of solvable group
+
+\section{2019-09-23}
+Frattini subgroup;
+Frattini argument;
+nilpotence of finite Frattini subgroup
+
+\section{2019-09-25}
+Hall pi-subgroups;
+crossed homomorphisms
+
+\section{2019-09-27}
+Schur-Zassenhaus Theorem;
+existence and conjugacy of complements
+
+\section{2019-09-30}
+pi-separable groups;
+existence of Hall pi-subgroups in solvable groups
+
+\section{2019-10-02}
+transfer 
+
+\end{document}
