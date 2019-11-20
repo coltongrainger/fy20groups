@@ -1,0 +1,87 @@
+\documentclass[onesided]{ccg-pset}
+
+\course{MATH 6270}
+\psnum{12}
+\author{Colton Grainger}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item That ``an equivalence between group extensions $E_1$ and $E_2$ of $N$ by $G$ yields an isomorphism $E_1 \xrightarrow{\phi} E_2$'' is a consequence of the five lemma, which we now prove.
+\begin{equation*}
+\begin{gathered}\xymatrix@=1em{%
+    1 \ar[r] & N \ar@{=}[d] \ar[r] & E_1 \ar^\phi[d] \ar[r] & G \ar@{=}[d]\ar[r] & 1\\
+    1 \ar[r] & N \ar[r] & E_2 \ar[r] & G \ar[r] & 1,
+    }
+\end{gathered}
+\end{equation*}
+
+\begin{lem*}[Five Lemma \cite{Wei94}]
+    \label{lem:five_lemma}
+    Suppose the following diagram of groups has exact rows.
+\begin{equation*}
+\begin{gathered}\xymatrix@=1em{%
+    A' \ar^a[d] \ar[r] & B' \ar^b[d] \ar[r] & C' \ar^c[d] \ar[r] & D' \ar^d[d] \ar[r] & E' \ar^e[d]\\
+    A  \ar[r] & B \ar[r] & C \ar[r] & D  \ar[r] & E\\
+    }
+\end{gathered}
+\end{equation*}
+\begin{enumerate}
+    \item If $a$ is epic and both $b$ and $d$ are monic, then $c$ is monic.
+    \item If $e$ is monic and both $b$ and $d$ are epic, then $c$ is epic.
+\end{enumerate}
+\end{lem*}
+
+\begin{proof}
+A diagram chase. 
+\begin{enumerate}
+    \item Suppose $a$ is epic, $b$ and $d$ are monic. To show $c$ is monic, let $\gamma'$ be an element of $C'$ that maps to $1$ under $c$.
+Say $\delta'$ is the image of $\gamma'$ in $D'$. Since $1$ in $C$ maps to $1$ in $D$, and the right square commutes, that $d$ is monic implies $\delta' = 1$ in $D'$. Hence, by exactness at $C'$, $\gamma'$ lifts to $\beta'$ in $B'$. Pushing $\beta'$ down to $\beta$, that the center square commutes implies $\beta$ maps to $1$ in $C$. Hence, by exactness at $B$, $\beta$ lifts to $\alpha$ in $A$, which lifts to $\alpha'$ in $A'$, as $a$ is epic. Because $b$ is monic, that the image of $\beta'$ is $\beta$ and the left square commutes implies $\alpha'$ maps to $\beta'$. But then exactness at $B'$ implies $\beta'$ maps to $1$ in $C'$. Since $\gamma'$ is the image of $\beta'$, $\gamma' = 1$. Hence $c$ is monic.
+
+\begin{center}
+    \includegraphics[width=0.3\linewidth]{/home/colton/rote/2019-11-19-monic.png}
+\end{center}
+
+    \item Suppose $e$ is monic, $b$ and $d$ are epic. To show $c$ is epic, let $\gamma$ be an arbitrary element of $C$. Let $\delta$ be the image of $\gamma$ in $D$. As $d$ is epic, $\delta$ lifts to $\delta'$ in $D'$. Because $\delta$ is in the image of $C$, $\delta$ maps to $1$ in $E$. But $e$ is monic and the right square commutes, so $\delta'$ must map to $1$ in $E'$, and hence exactness at $D'$ yields a lift $\gamma'$ in $C'$ of $\delta'$. Since the center square commutes, both $c(\gamma')$ and $\gamma$ map to $\delta$ in $D$, that is, both elements are in the same coset of $\ker(C \to D)$. Because $C \to D$ is a homomorphism, that $c(\gamma') \equiv \gamma \mod \ker(C\to D)$ implies $c(\gamma')\gamma^{-1}$ maps to $1$ in $D$. Exactness at $C$ yields a lift $\beta$ of $c(\gamma')\gamma^{-1}$, where $\beta$ is the image of $\beta'$ under epic $b$, and $\tilde\gamma$ is the image of $\beta'$ in $C'$. That the left square commutes implies $\tilde\gamma$ pushes down to $c(\gamma')\gamma^{-1}$. But $c$ is a homomorphism, so $\gamma = c\paren{(\tilde\gamma)^{-1}\gamma'}$. Hence $c$ is epic.
+\begin{center}
+    \includegraphics[width=0.35\linewidth]{/home/colton/rote/2019-11-19-epic.png}
+\end{center}
+\end{enumerate}
+\end{proof}
+
+\item Non-equivalent extensions may give isomorphic groups. For example, consider $\Z/(9)$ as the following extensions:
+\begin{align*}
+    \shortexact[\cdot 3][]{\Z/(3)}{\Z/(9)}{\Z/(3)},\\
+    \shortexact[\cdot 6][]{\Z/(3)}{\Z/(9)}{\Z/(3)}.
+\end{align*}
+These extensions are not equivalent. 
+\begin{proof}[Proof by contradiction]
+Suppose we had an equivalence
+\begin{equation*}
+\begin{gathered}\xymatrix@=3em{%
+    0 \ar[r] & \Z/(3) \ar@{=}[d] \ar^{\cdot 3}[r] & \Z/(9) \ar^{\phi}[d] \ar^{}[r] & \Z/(3)\ar@{=}[d]\ar[r] & 0\\
+    0 \ar[r] & \Z/(3) \ar^{\cdot 6}[r] & \Z/(9) \ar^{}[r] & \Z/(3) \ar[r] & 0.
+    }
+\end{gathered}
+\end{equation*}
+That the left square commutes implies, e.g., $\phi(\bar{3}) = \bar{6}$. That the right square commutes (where both quotient maps are modulo $3$) implies the image of $\bar{1}$ under $\phi$ lands in the coset $\set{\bar{1}, \bar{4}, \bar{7}}$. But if the $\phi$ maps the generator $\bar{1}$ to any of these elements, extending linearly forces $\phi(\bar{3}) = \bar{3}$, a contradiction.
+\end{proof}
+
+At the same time, it's not too hard to modify the quotient map in the second sequence to ``untwist'' the extension and obtain equivalence:
+\begin{equation*}
+\begin{gathered}\xymatrix@=3em{%
+    0 \ar[r] & \Z/(3) \ar@{=}[d] \ar^{\cdot 3}[r] & \Z/(9) \ar^{\cdot 2}[d] \ar^{}[r] & \Z/(3)\ar@{=}[d]\ar[r] & 0\\
+    0 \ar[r] & \Z/(3) \ar^{\cdot 6}[r] & \Z/(9) \ar^{\cdot 2}[r] & \Z/(3) \ar[r] & 0.
+    }
+\end{gathered}
+\end{equation*}
+\end{enumerate}
+
+\bibliography{/home/colton/coltongrainger.bib}
+\bibliographystyle{alpha}
+
+\end{document}
